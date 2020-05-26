@@ -65,24 +65,19 @@ export default class StringReader implements ImmutableStringReader {
         this.cursor++;
     }
 
-    public static isAllowedFloat(c: string): boolean {
-        return c >= '0' && c <= '9' || c == '.' || c == '-' || c == '+' || c == 'e' || c == 'E';
-    }
-
-    public static isAllowedInt(c: string): boolean {
-        return c >= '0' && c <= '9' || c == '-' || c == '+';
+    public static isAllowedNumber(c: string): boolean {
+        return c >= '0' && c <= '9' || c == '.' || c == '-';
     }
 
     public skipWhitespace() {
         while ((this.canRead() && /\s/.test(this.peek()))) {
             this.skip();
         }
-
     }
 
     public readInt(): number {
         let start = this.cursor;
-        while (this.canRead() && StringReader.isAllowedInt(this.peek())) {
+        while (this.canRead() && StringReader.isAllowedNumber(this.peek())) {
             this.skip();
         }
 
@@ -105,7 +100,7 @@ export default class StringReader implements ImmutableStringReader {
 
     public readFloat(): number {
         let start = this.cursor;
-        while ((this.canRead() && StringReader.isAllowedFloat(this.peek()))) {
+        while ((this.canRead() && StringReader.isAllowedNumber(this.peek()))) {
             this.skip();
         }
 
