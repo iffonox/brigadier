@@ -1,4 +1,7 @@
 # Node-Brigadier
+
+![Node.js CI](https://github.com/iffonox/brigadier/workflows/Node.js%20CI/badge.svg)
+
 ___
 This is a nodejs version of Mojang's Brigadier library.
 >Brigadier is a command parser & dispatcher, designed and developed for Minecraft: Java Edition and now freely available for use elsewhere under the MIT license.
